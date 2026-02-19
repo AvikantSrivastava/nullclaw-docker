@@ -45,6 +45,7 @@ COPY --from=builder /src/zig-out/bin/nullclaw /usr/local/bin/nullclaw
 # minimal runtime deps (if needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
+     sqlite3 \
  && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["nullclaw"]
